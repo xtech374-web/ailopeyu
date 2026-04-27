@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat Buat Kamu</title>
+    <style>
+        body {
+            background-color: #ffe4e1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        h2 { color: #ff4d6d; }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #btnYes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #btnNo {
+            background-color: #ddd;
+            position: absolute;
+            left: 60%;
+        }
+
+        .hidden { display: none; }
+        
+        img { width: 150px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainCard">
+        <img src="STK-20241008-WA0023.webp" alt="Cute Cat">
+        <h2>Kamu mau gak jadi pacar aku? ❤️</h2>
+        <div class="buttons">
+            <button id="btnYes" onclick="terima()">Mau</button>
+            <button id="btnNo" onmouseover="pindah(this)" onclick="pindah(this)">Gak</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="successCard">
+        <img src="STK-20250803-WA0036.webp" alt="Happy Cat">
+        <h2>Yeeay! I Love You! 💖</h2>
+        <p>Hubungi aku di WhatsApp ya!</p>
+    </div>
+
+    <script>
+        function pindah(button) {
+            // Membuat posisi random untuk tombol "Gak"
+            const x = Math.random() * (window.innerWidth - button.offsetWidth);
+            const y = Math.random() * (window.innerHeight - button.offsetHeight);
+            
+            button.style.position = 'fixed';
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+        }
+
+        function terima() {
+            document.getElementById('mainCard').classList.add('hidden');
+            document.getElementById('successCard').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
